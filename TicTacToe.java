@@ -1,21 +1,13 @@
-import java.util.Scanner;
-
-public class TicTacToe
-{
-    public static int getSlotInput()
-    {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter slot (1-9): ");
-        int slot = sc.nextInt();
-
-        return slot;
+public boolean validateMove(int row, int col, char[][] board) {
+    // Check boundaries
+    if (row < 0 || row > 2 || col < 0 || col > 2) {
+        return false;
     }
 
-    public static void main(String[] args)
-    {
-        int userSlot = getSlotInput();
-
-        System.out.println("You selected slot: " + userSlot);
+    // Check if cell is empty
+    if (board[row][col] != ' ') {
+        return false;
     }
+
+    return true;
 }
